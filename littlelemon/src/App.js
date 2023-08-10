@@ -6,6 +6,7 @@ import Home from './homepage';
 import About from './about';
 import Menu from './menu';
 import Booking from './booking';
+import Location from './location';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/menu" element={<Menu />} />
           <Route path="/booking" element={<Booking />} />
+          <Route path="/locations" element={<Location />} />
         </Routes>
     </ChakraProvider>
   );
