@@ -12,26 +12,16 @@ import {
 import Nav from "./nav";
 import { useState } from "react";
 import Footer from "./footer";
+import axios from "axios";
+// import axiosInstance from './axiosInstance';
 // import axios from "axios";
-import axiosInstance from './axiosInstance';
 
 function Booking(){
 
-    // for adding date and time in the form 
-    const [dateTime, setDateTime] = useState('');
 
-    const handleDateTimeChange = (event) => {
-    setDateTime(event.target.value);
-    };
 
     // for sending data to the database
-    const [data, setData] = useState({
-        // name : '',
-        // no_of_guests : '',
-        // bookingdate : '',
-        // email : '',
-        // phone_number : ''
-      });
+    const [data, setData] = useState({ });
 
       const [isBookingConfirmed, setIsBookingConfirmed] = useState(false);
 
@@ -43,27 +33,27 @@ function Booking(){
         }));
       };
 
-      const handleSubmit = event => {
+      const handleSubmit = async (event) => {
         event.preventDefault();
 
-        axiosInstance.post('http://127.0.0.1:8001/restaurant/booking/tables/', data)
-          .then(response => { 
-            // Handle the response or update state if needed
-            setIsBookingConfirmed(true);
-            // Reset the data
-            setData({
-              // Reset your data fields here
-                name : '',
-                no_of_guests : '' ,
-                bookingdate : '',
-                email : '',
-                phone_number : ''
-            });
-          })
-          .catch(err => {
-            console.error('Error sending data', err);
-          });
+
+        try {
+          const response = await axios.post(
+            "http://127.0.0.1:8001/restaurant/booking/tables/",
+            data
+          );
+
+          console.log("Success:", response.data);
+          setIsBookingConfirmed(true);
+
+          setData({ });
+        } catch (error) {
+          console.error("Error sending data:", error);
+          console.error("Response status:", error.response.status);
+          console.error("Response data:", error.response.data);
+        }
       };
+
 
 
     return(
@@ -97,8 +87,9 @@ function Booking(){
                                         <Input 
                                             placeholder=" When will you be stopping by"  
                                             type="datetime-local" 
-                                            value={dateTime} 
-                                            isRequired onChange={handleDateTimeChange}/>
+                                            value={data.BookingDate} 
+                                            isRequired 
+                                            onChange={handleChange}/>
                                         <FormLabel as='b' fontSize='lg'>Email:</FormLabel>
                                         <Input 
                                             placeholder=" We want to send you confirmation"
