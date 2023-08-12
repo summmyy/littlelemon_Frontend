@@ -13,46 +13,60 @@ import Nav from "./nav";
 import { useState } from "react";
 import Footer from "./footer";
 import axios from "axios";
-// import axiosInstance from './axiosInstance';
-// import axios from "axios";
+
 
 function Booking(){
 
 
 
-    // for sending data to the database
-    const [data, setData] = useState({ });
+    // data to be sent to the database. each field has to be listed one at a time
 
-      const [isBookingConfirmed, setIsBookingConfirmed] = useState(false);
+      const [name, setName] = useState('');
+      const [no_of_guests, setNo_of_guests] = useState('');
+      const [BookingDate, setBookingDate] = useState('');
+      const [email, setEmail] = useState('');
+      const [phone_number, setPhone_number] = useState('');
 
-      const handleChange = event => {
-        const { name, value } = event.target;
-        setData(prevData => ({
-          ...prevData,
-          [name]: value
-        }));
-      };
+      // function sending data to the server to be saved in the database
+      // reference this video is you ever get stuck on this again. - https://www.youtube.com/watch?v=xjWwnqMn-b0&ab_channel=CodingAddict
+
 
       const handleSubmit = async (event) => {
         event.preventDefault();
-
+        const bookingUrl = "http://127.0.0.1:8001/restaurant/booking/tables/"
 
         try {
           const response = await axios.post(
-            "http://127.0.0.1:8001/restaurant/booking/tables/",
-            data
+            bookingUrl,
+            {
+              name : name,
+              no_of_guests : no_of_guests,
+              BookingDate : BookingDate,
+              email : email,
+              phone_number : phone_number
+            }
           );
 
           console.log("Success:", response.data);
           setIsBookingConfirmed(true);
 
-          setData({ });
+          setName('');
+          setNo_of_guests('');
+          setBookingDate('');
+          setEmail('');
+          setPhone_number('');
+
+
         } catch (error) {
           console.error("Error sending data:", error);
           console.error("Response status:", error.response.status);
           console.error("Response data:", error.response.data);
         }
       };
+
+    
+
+      const [isBookingConfirmed, setIsBookingConfirmed] = useState(false);
 
 
 
@@ -67,12 +81,12 @@ function Booking(){
                                     <FormControl padding={5} >
                                         <FormLabel as='b' fontSize='lg'>Name:</FormLabel>
                                         <Input 
-                                            value={data.name}
-                                            onChange={handleChange}
+                                            value={name}
+                                            onChange={(e) => setName(e.target.value)}
                                             placeholder=" Your Name" 
                                             isRequired />
                                         <FormLabel as='b' fontSize='lg'>Guests:</FormLabel>
-                                        <Select placeholder=" How many seats do you need?" isRequired value={data.no_of_guests} onChange={handleChange} >
+                                        <Select placeholder=" How many seats do you need?" isRequired value={no_of_guests} onChange={(e) => setNo_of_guests(e.target.value)} >
                                             <option value='1'> 1</option>
                                             <option value='2'> 2</option>
                                             <option value='3'> 3</option>
@@ -87,19 +101,19 @@ function Booking(){
                                         <Input 
                                             placeholder=" When will you be stopping by"  
                                             type="datetime-local" 
-                                            value={data.BookingDate} 
+                                            value={BookingDate} 
                                             isRequired 
-                                            onChange={handleChange}/>
+                                            onChange={(e) => setBookingDate(e.target.value)}/>
                                         <FormLabel as='b' fontSize='lg'>Email:</FormLabel>
                                         <Input 
                                             placeholder=" We want to send you confirmation"
-                                            value={data.email}
-                                            onChange={handleChange}
+                                            value={email}
+                                            onChange={(e) => setEmail(e.target.value)}
                                             type="email"
                                             isRequired
                                             />
                                         <FormLabel as='b' fontSize='lg'> Phone Number: </FormLabel>
-                                        <Input placeholder=" We'll send you a reminder so you're not late" type="number" value={data.phone_number} onChange={handleChange}/>
+                                        <Input placeholder=" We'll send you a reminder so you're not late" type="number" value={phone_number} onChange={(e) => setPhone_number(e.target.value)}/>
                                     </FormControl>
                                     <br />
                                         <Button 
