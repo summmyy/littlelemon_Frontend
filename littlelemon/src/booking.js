@@ -7,16 +7,18 @@ import {
         Button,
         Container,
         Select,
-        Text
         } from "@chakra-ui/react";
 import Nav from "./nav";
 import { useState } from "react";
 import Footer from "./footer";
 import axios from "axios";
+import { useNavigate } from 'react-router-dom'
 
 
 function Booking(){
 
+
+  const navigate = useNavigate();
 
 
     // data to be sent to the database. each field has to be listed one at a time
@@ -26,6 +28,10 @@ function Booking(){
       const [BookingDate, setBookingDate] = useState('');
       const [email, setEmail] = useState('');
       const [phone_number, setPhone_number] = useState('');
+
+      // eslint-disable-next-line
+      const [isBookingConfirmed, setIsBookingConfirmed] = useState(false);
+
 
       // function sending data to the server to be saved in the database
       // reference this video is you ever get stuck on this again. - https://www.youtube.com/watch?v=xjWwnqMn-b0&ab_channel=CodingAddict
@@ -50,6 +56,8 @@ function Booking(){
           console.log("Success:", response.data);
           setIsBookingConfirmed(true);
 
+          navigate('/booking/confirmation')
+
           setName('');
           setNo_of_guests('');
           setBookingDate('');
@@ -63,11 +71,6 @@ function Booking(){
           console.error("Response data:", error.response.data);
         }
       };
-
-    
-
-      const [isBookingConfirmed, setIsBookingConfirmed] = useState(false);
-
 
 
     return(
@@ -125,7 +128,6 @@ function Booking(){
                                         _hover={{textColor : 'black', bgColor : 'yellow'}}
                                         > Reserve  </Button>
                             </form>
-                            {isBookingConfirmed && <Text> Booking Confirmed. See you soon!</Text>}
                         </Container>
                     </Box>
                 </Box>

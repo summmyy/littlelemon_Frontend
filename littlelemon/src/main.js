@@ -1,10 +1,10 @@
 import { Box,
-         Button,  
-         Center, 
-         SimpleGrid, 
-         Text, 
-         VStack, 
-         HStack, 
+         Button,
+         Center,
+         SimpleGrid,
+         Text,
+         VStack,
+         HStack,
          Image,
          } from "@chakra-ui/react";
 import { Link as ReactRouterLink, useNavigate } from 'react-router-dom'

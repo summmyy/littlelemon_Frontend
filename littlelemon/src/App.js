@@ -7,6 +7,7 @@ import About from './about';
 import Menu from './menu';
 import Booking from './booking';
 import Location from './location';
+import BookingConfirmation from './bookingConfrimation'
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/menu" element={<Menu />} />
           <Route path="/booking" element={<Booking />} />
           <Route path="/locations" element={<Location />} />
+          <Route path="/booking/confirmation" element={<BookingConfirmation />} />
         </Routes>
     </ChakraProvider>
   );
