@@ -39,7 +39,7 @@ function Main(){
                     <Center paddingTop={5} paddingBottom={5}>
                         <Box
                         bgImage={header_img}
-                        width={1698}
+                        width={{base : 800 ,xl : 1455,'2xl':1698}}
                         height={200}
                         backgroundPosition='center'
                         >
@@ -73,7 +73,7 @@ function Main(){
                 </article>
                 <article>
                     <HStack>
-                            <SimpleGrid columns={{ base : 1 ,'2xl' : 3}} spacing={{ base : 5 ,'2xl' : 5}} paddingLeft={{ base : 5 ,'2xl' : 105}} paddingRight={{ base : 5 ,'2xl' : 105}}>
+                            <SimpleGrid columns={{ base : 1 , xl : 3,'2xl' : 3}} spacing={{ base : 5 ,'2xl' : 5}} paddingLeft={{ base : 5 ,'2xl' : 105}} paddingRight={{ base : 5 ,'2xl' : 105}}>
                                     <Box borderWidth='1px' padding={4}>
                                         <Text as='b' fontSize={{ base : '3xl' ,'2xl' : '3xl'}} >Our New Menu</Text>
                                         <Image src={menu} paddingTop={5} />

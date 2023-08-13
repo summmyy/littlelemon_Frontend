@@ -42,7 +42,7 @@ function Menu() {
         <Box display="flex" justifyContent="center" alignItems="center" width="100vw" paddingLeft={{ base : 5 ,'2xl' : 110}} paddingRight={{ base : 5 ,'2xl' : 120}} paddingTop={10}>
           <Box borderWidth='1px' paddingBottom={10} paddingTop={5} >
              <Heading as='h1' padding={5}> Today's Menu </Heading>
-                  <SimpleGrid columns={{ base : 1 ,'2xl' : 3}} spacing={8} padding={15}>
+                  <SimpleGrid columns={{ base : 1 ,xl : 3,'2xl' : 3}} spacing={8} padding={15}>
                   {data.map((value, index) => (
                       <Box key={index}  borderRadius='lg' >
                         <Image src={value.image} borderRadius='lg'/>

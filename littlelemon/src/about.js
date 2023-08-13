@@ -26,9 +26,9 @@ function About(){
         <div>
            <Nav />
            <br />
-                <Box display="flex" justifyContent="center" alignItems="center" width="100vw" paddingLeft={{ base : 2.5 ,'2xl' : 110}} paddingRight={{ base : 2.5 ,'2xl' : 120}} >
+                <Box display="flex" justifyContent="center" alignItems="center" width="100vw" paddingLeft={{ base : 2.5 ,xl : 50,'2xl' : 110}} paddingRight={{ base : 2.5 ,xl : 30,'2xl' : 120}} >
                     <Box borderWidth='1px' paddingBottom={10}  >
-                        <SimpleGrid columns={{ base : 1 ,'2xl' : 2}} spacing={5} >
+                        <SimpleGrid columns={{ base : 1 ,xl : 2,'2xl' : 2}} spacing={5} >
                             <VStack align='flex-start' paddingLeft={5} paddingTop={30} padding={{ base : 5 ,'2xl' : 5}}>
                                 <Heading as='h1' textAlign='left'> About Us </Heading>
                                 <br />
@@ -46,8 +46,8 @@ function About(){
                                         Adrian does all the marketing for the restaurant and led the effort to expand the menu beyond classic Italian to incorporate additional cuisines from the mediterranean region. <br />
                                 </Text>
                             </VStack>
-                            <VStack align='flex-start' paddingTop={{ base : 25 ,'2xl' : 100}} padding={{ base : 5 ,'2xl' : 20}}>
-                                <Image src={owners} width={{ base : 450 ,'2xl' : 800}} height={{ base : 300 ,'2xl' : 530}}/>
+                            <VStack align='flex-start' paddingTop={{ base : 25 , xl : 20,'2xl' : 100}} padding={{ base : 5 ,'2xl' : 20}}>
+                                <Image src={owners} width={{ base : 450 ,xl : 650,'2xl' : 800}} height={{ base : 300 ,xl : 450,'2xl' : 530}}/>
                                 <Text as='p' fontSize={ {base : 'md' ,'2xl' : 'lg'}}> Little Lemon owners Mario and Adrian. </Text>
                             </VStack>
                         </SimpleGrid>

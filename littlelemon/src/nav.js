@@ -33,10 +33,12 @@ function Nav(){
             <Center>
                 <HStack
                     padding={{ base : 1.5 ,'2xl' : 1.5}}
-                    paddingLeft={{base : 1 ,'2xl' : 625}}
-                    paddingRight={{base : 0 ,'2xl' : 625}}
+                    paddingLeft={{base : 1 , lg : 300, xl : 550,'2xl' : 625}}
+                    paddingRight={{base : 0 ,lg : 300, xl : 550 ,'2xl' : 625}}
                     bgColor='#495E57'
-                    textColor='white' >
+                    textColor='white'
+                    
+                    >
 
                         <ChakraLink as={ReactRouterLink}  to = '/' >
                         <Text fontSize='xl' paddingRight={5} paddingLeft={5} as='b' _hover={{ cursor : 'pointer'}} >  Home </Text>

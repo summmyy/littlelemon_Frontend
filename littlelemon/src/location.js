@@ -27,7 +27,7 @@ function Location(){
                 <Box display="flex" justifyContent="center" alignItems="center" width="100vw" paddingLeft={{ base : 5 ,'2xl' : 110}} paddingRight={{ base : 5 ,'2xl' : 110}} paddingTop={10}>
                     <Box borderWidth='1px' paddingBottom={10} paddingTop={5} paddingLeft={{ base : 5 ,'2xl' : 205}} paddingRight={{ base : 5 ,'2xl' : 205}}>
                         <Heading as='h1' padding={5}> Our Locations </Heading>
-                        <SimpleGrid columns={{ base : 1 ,'2xl' : 2}} spacing={5} padding={5} >
+                        <SimpleGrid columns={{ base : 1 , xl : 2 ,'2xl' : 2}} spacing={5} padding={5} >
                             <Box >
                                 <AspectRatio>
                                 <iframe 

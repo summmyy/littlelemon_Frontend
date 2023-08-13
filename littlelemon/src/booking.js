@@ -110,14 +110,14 @@ function Booking(){
                                             <option value='9'> 9+</option>
                                         </Select>
                                         <FormLabel as='b' fontSize='lg'>Time:</FormLabel>
-                                        <Input 
-                                            placeholder=" When will you be stopping by"  
-                                            type="datetime-local" 
-                                            value={BookingDate} 
-                                            isRequired 
+                                        <Input
+                                            placeholder=" When will you be stopping by"
+                                            type="datetime-local"
+                                            value={BookingDate}
+                                            isRequired
                                             onChange={(e) => setBookingDate(e.target.value)}/>
                                         <FormLabel as='b' fontSize='lg'>Email:</FormLabel>
-                                        <Input 
+                                        <Input
                                             placeholder=" We'll send you confirmation"
                                             value={email}
                                             onChange={(e) => setEmail(e.target.value)}
@@ -129,8 +129,9 @@ function Booking(){
                                     </FormControl>
                                     <br />
                                         <Button 
-                                        paddingLeft={{ base : 120 ,'2xl' : 60}} 
-                                        paddingRight={{ base : 120 ,'2xl' : 60}} 
+                                        margin={{base : 0, xl : 4,'2xl' : 0}}
+                                        paddingLeft={{ base : 120 ,xl : 60,'2xl' : 60}} 
+                                        paddingRight={{ base : 120 ,xl : 60,'2xl' : 60}} 
                                         bgColor='#495E57' 
                                         textColor='white'
                                         type="submit"
