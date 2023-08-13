@@ -9,6 +9,8 @@ import Booking from './booking';
 import Location from './location';
 import BookingConfirmation from './bookingConfrimation'
 
+// Note: The server is running on port 8001, so dont forget to specify when running theh server on the backend
+
 function App() {
   return (
     <ChakraProvider>

@@ -6,7 +6,7 @@ import Footer from './footer'
 
 function Home(){
     return(
-        <div>
+        <div >
             <Nav />
             <Main />
             <Footer />

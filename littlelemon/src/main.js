@@ -23,6 +23,16 @@ function Main(){
                 navigate('/booking')
             }
 
+            // eslint-disable-next-line
+            const breakpoints = {
+                base : '0em',
+                sm: '30em', // 480px
+                md: '48em', // 768px
+                lg: '62em', // 992px
+                xl: '80em', // 1280px
+                '2xl': '96em', // 1536px
+              }
+
     return(
         <main>
                 <article>
@@ -35,8 +45,8 @@ function Main(){
                         >
                             <Box
                                 position="absolute"
-                                width={1698}
-                                height={200}
+                                width={{ base : 5 ,'2xl' : 1698}}
+                                height={{ base : 5 ,'2xl' : 200}}
                                 bg="rgba(0, 0, 0, 0)" // Adjust the opacity (last value) to control dimming
                                 borderRadius="md"
                             />
@@ -44,14 +54,14 @@ function Main(){
                                 <VStack>
                                     <Text fontSize='5xl' as='b' textColor='white' > SPECIAL OFFER </Text>
                                     <Text fontSize='2xl' as='b' textColor='white'> 30% Off This Weekend </Text>
-                                    <Button 
-                                    size='md' 
+                                    <Button
+                                    size='md'
                                     height='48px'
-                                    width='200px' 
-                                    border='2px' 
-                                    borderColor='white' 
-                                    borderRadius={0} 
-                                    bg='clear' 
+                                    width='200px'
+                                    border='2px'
+                                    borderColor='white'
+                                    borderRadius={0}
+                                    bg='clear'
                                     textColor='white'
                                     _hover={{bgColor : '#495E57', borderColor : '#495E57', cursor : 'pointer'}}
                                     onClick={handleClick}
@@ -63,25 +73,25 @@ function Main(){
                 </article>
                 <article>
                     <HStack>
-                            <SimpleGrid columns={3} spacing={5} paddingLeft={105} paddingRight={105}>
+                            <SimpleGrid columns={{ base : 1 ,'2xl' : 3}} spacing={{ base : 5 ,'2xl' : 5}} paddingLeft={{ base : 5 ,'2xl' : 105}} paddingRight={{ base : 5 ,'2xl' : 105}}>
                                     <Box borderWidth='1px' padding={4}>
-                                        <Text as='b' fontSize='3xl' >Our New Menu</Text>
+                                        <Text as='b' fontSize={{ base : '3xl' ,'2xl' : '3xl'}} >Our New Menu</Text>
                                         <Image src={menu} paddingTop={5} />
                                         <Text as='p' fontSize='xl' paddingTop={5} >Our menu consists of 12-15 seasonal items based on Italian, Greek, and Turkish culture.</Text>
-                                        <ChakraLink as={ReactRouterLink} to='/menu'> 
+                                        <ChakraLink as={ReactRouterLink} to='/menu'>
                                         <Text as='p' fontSize='lg' color='orange.400' _hover={{ cursor : 'pointer'}}> See our new menu </Text>
                                         </ChakraLink>
                                     </Box>
                                     <Box borderWidth='1px' padding={4}>
-                                        <Text as='b' fontSize='3xl'>Book a table</Text>
+                                        <Text as='b' fontSize={{ base : '3xl' ,'2xl' : '3xl'}}>Book a table</Text>
                                         <Image src={table} paddingTop={5}  />
                                         <Text as='p' fontSize='xl' paddingTop={5}>Reserve your table for an Italian, Greek, and Turkish dining experience.</Text>
-                                        <ChakraLink as={ReactRouterLink} to='/booking' > 
+                                        <ChakraLink as={ReactRouterLink} to='/booking' >
                                         <Text as='p' fontSize='lg' color='orange.400' _hover={{ cursor : 'pointer'}}> Book your table now </Text>
                                         </ChakraLink>
                                     </Box>
                                     <Box borderWidth='1px' padding={4}>
-                                        <Text as='b' fontSize='3xl' >Opening Hours</Text>
+                                        <Text as='b' fontSize={{ base : '3xl' ,'2xl' : '3xl'}} >Opening Hours</Text>
                                         <Image src={hours}  paddingTop={5}/>
                                         <Text as='p' fontSize='xl' paddingTop={5}>The Little Lemon Restaurant is open 7 days a week, <br /> except for  public holidays.</Text>
                                         <Text as='p' paddingLeft={10} paddingTop={5}>

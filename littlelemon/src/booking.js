@@ -39,7 +39,7 @@ function Booking(){
 
       const handleSubmit = async (event) => {
         event.preventDefault();
-        const bookingUrl = "http://127.0.0.1:8001/restaurant/booking/tables/"
+        const bookingUrl = "http://127.0.0.1:8001/restaurant/booking/tables/" // Note: The server is running on port 8001, so dont forget to specify when running theh server on the backend
 
         try {
           const response = await axios.post(
@@ -72,12 +72,21 @@ function Booking(){
         }
       };
 
+      // eslint-disable-next-line
+      const breakpoints = {
+        base : '0em',
+        sm: '30em', // 480px
+        md: '48em', // 768px
+        lg: '62em', // 992px
+        xl: '80em', // 1280px
+        '2xl': '96em', // 1536px
+      }
 
     return(
         <div>
             <Nav />
-                <Box display="flex" justifyContent="center" alignItems="center" width="100vw" paddingLeft={110} paddingRight={120} padding={5}>
-                    <Box width='30vw' borderWidth='1px' paddingBottom={10} paddingTop={30}>
+                <Box display="flex" justifyContent="center" alignItems="center" width="100vw" paddingLeft={{ base : 5 ,'2xl' : 110}} paddingRight={{ base : 5 ,'2xl' : 120}} padding={5}>
+                    <Box width={{ base : '80vw' ,'2xl' : '30vw'}} borderWidth='1px' paddingBottom={10} paddingTop={30}>
                         <Container >
                             <Heading paddingLeft={5}> Make a Reservation</Heading>
                                 <form onSubmit={handleSubmit}>
@@ -109,19 +118,19 @@ function Booking(){
                                             onChange={(e) => setBookingDate(e.target.value)}/>
                                         <FormLabel as='b' fontSize='lg'>Email:</FormLabel>
                                         <Input 
-                                            placeholder=" We want to send you confirmation"
+                                            placeholder=" We'll send you confirmation"
                                             value={email}
                                             onChange={(e) => setEmail(e.target.value)}
                                             type="email"
                                             isRequired
                                             />
                                         <FormLabel as='b' fontSize='lg'> Phone Number: </FormLabel>
-                                        <Input placeholder=" We'll send you a reminder so you're not late" type="number" value={phone_number} onChange={(e) => setPhone_number(e.target.value)}/>
+                                        <Input placeholder=" We'll send you a reminder " type="number" value={phone_number} onChange={(e) => setPhone_number(e.target.value)}/>
                                     </FormControl>
                                     <br />
                                         <Button 
-                                        paddingLeft={60} 
-                                        paddingRight={60} 
+                                        paddingLeft={{ base : 120 ,'2xl' : 60}} 
+                                        paddingRight={{ base : 120 ,'2xl' : 60}} 
                                         bgColor='#495E57' 
                                         textColor='white'
                                         type="submit"

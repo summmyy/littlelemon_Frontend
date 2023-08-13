@@ -13,16 +13,31 @@ function Nav(){
                 event.preventDefault()
                 navigate('/')
             }
-
+            
+            // eslint-disable-next-line
+            const breakpoints = {
+                base : '0em',
+                sm: '30em', // 480px
+                md: '48em', // 768px
+                lg: '62em', // 992px
+                xl: '80em', // 1280px
+                '2xl': '96em', // 1536px
+              }
 
     return (
         <nav>
             <VStack>
-            <Center paddingTop={27} paddingBottom={5}>
+            <Center paddingTop={{base : 10,'2xl' : 27}} paddingBottom={5} paddingLeft={{base : 5}} paddingRight={{base : 5}}>
                 <img src={logo} alt='little lemon logo' onClick={handleClick} _hover={{ cursor : 'pointer'}} />
             </Center>
             <Center>
-                <HStack padding={1.5} paddingLeft={625} paddingRight={625} bgColor='#495E57' textColor='white' >
+                <HStack
+                    padding={{ base : 1.5 ,'2xl' : 1.5}}
+                    paddingLeft={{base : 1 ,'2xl' : 625}}
+                    paddingRight={{base : 0 ,'2xl' : 625}}
+                    bgColor='#495E57'
+                    textColor='white' >
+
                         <ChakraLink as={ReactRouterLink}  to = '/' >
                         <Text fontSize='xl' paddingRight={5} paddingLeft={5} as='b' _hover={{ cursor : 'pointer'}} >  Home </Text>
                         </ChakraLink>
@@ -36,7 +51,7 @@ function Nav(){
                         <Text fontSize='xl' paddingRight={5} as='b' _hover={{ cursor : 'pointer'}}>  Book </Text>
                         </ChakraLink>
                         <ChakraLink as={ReactRouterLink} to = '/locations' >
-                        <Text fontSize='xl' paddingRight={5} as='b' _hover={{ cursor : 'pointer'}}>  Locations </Text>
+                        <Text fontSize='xl' paddingRight={{ base : 5 ,'2xl' : 5}} as='b' _hover={{ cursor : 'pointer'}}>  Locations </Text>
                         </ChakraLink>
                 </HStack>
             </Center>
