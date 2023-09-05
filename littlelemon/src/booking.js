@@ -39,7 +39,7 @@ function Booking(){
 
       const handleSubmit = async (event) => {
         event.preventDefault();
-        const bookingUrl = "http://127.0.0.1:8001/restaurant/booking/tables/" // Note: The server is running on port 8001, so dont forget to specify when running theh server on the backend
+        const bookingUrl = "https://littlelemon.up.railway.app/restaurant/booking/tables/" // Note: The server is running on port 8001, so dont forget to specify when running theh server on the backend
 
         try {
           const response = await axios.post(

@@ -16,7 +16,7 @@ function Menu() {
 
 
   useEffect(() => {
-    axios.get('http://127.0.0.1:8001/restaurant/menu/menu-items/')
+    axios.get('https://littlelemon.up.railway.app/restaurant/menu/menu-items/')
       .then(response => {
         setData(response.data);
       })
