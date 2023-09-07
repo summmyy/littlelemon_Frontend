@@ -20,7 +20,7 @@ function BookingConfirmation(){
         <div>
             <Nav />
                 <Box display="flex" justifyContent="center" alignItems="center" width="100vw" paddingLeft={110} paddingRight={120} padding={5} paddingBottom={450} >
-                    <Box width='35vw' borderWidth='0px' paddingBottom={10} paddingTop={30} >
+                    <Box width={{base : '80vw',xl : '55vw','2xl':'35vw'}} borderWidth='0px' paddingBottom={10} paddingTop={30} >
                         <Heading> Booking Confirmed. See you soon! 😊🍋 </Heading>
                     </Box>
                 </Box>

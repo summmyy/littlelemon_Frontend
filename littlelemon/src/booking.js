@@ -7,6 +7,7 @@ import {
         Button,
         Container,
         Select,
+        Center,
         } from "@chakra-ui/react";
 import Nav from "./nav";
 import { useState } from "react";
@@ -128,15 +129,17 @@ function Booking(){
                                         <Input placeholder=" We'll send you a reminder " type="number" value={phone_number} onChange={(e) => setPhone_number(e.target.value)}/>
                                     </FormControl>
                                     <br />
+                                    <Center>
                                         <Button 
                                         margin={{base : 0, xl : 4,'2xl' : 0}}
                                         paddingLeft={{ base : 120 ,xl : 60,'2xl' : 60}} 
-                                        paddingRight={{ base : 120 ,xl : 60,'2xl' : 60}} 
+                                        paddingRight={{ base : 120 ,xl : 60,'2xl' : 60}}
                                         bgColor='#495E57' 
                                         textColor='white'
                                         type="submit"
                                         _hover={{textColor : 'black', bgColor : 'yellow'}}
                                         > Reserve  </Button>
+                                    </Center>
                             </form>
                         </Container>
                     </Box>
